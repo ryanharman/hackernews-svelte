@@ -1,3 +1,5 @@
+import type { PageLoad } from './$types.js';
+
 type Response = {
 	id: number;
 	title: string;
@@ -9,9 +11,10 @@ type Response = {
 	type: string;
 	url: string;
 	domain: string;
+	isPost?: boolean;
 };
 
-export async function load({ fetch, url }) {
+export const load = (async ({ fetch, url }) => {
 	const page = url.searchParams.get('page') || 1;
 
 	const items: Response[] = await fetch(
@@ -22,6 +25,6 @@ export async function load({ fetch, url }) {
 		page: +page,
 		items
 	};
-}
+}) satisfies PageLoad;
 
 export type { Response as NewsResponse };

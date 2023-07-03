@@ -1,3 +1,5 @@
+import type { PageLoad } from './$types';
+
 type Response = {
 	id: number;
 	title: string;
@@ -10,6 +12,7 @@ type Response = {
 	domain: string;
 	comments: Comment[];
 	comments_count: number;
+	isPost: boolean;
 };
 
 type Comment = {
@@ -22,14 +25,14 @@ type Comment = {
 	comments: Comment[];
 };
 
-export async function load({ fetch, params }) {
+export const load = (async ({ fetch, params }) => {
 	const id = params.id;
 
 	const item: Response = await fetch(
 		`https://node-hnapi.herokuapp.com/item/${id}`
 	).then((r) => r.json());
 
-	return { item };
-}
+	return { item: { ...item, isPost: true } };
+}) satisfies PageLoad;
 
 export type { Response as PostResponse };
