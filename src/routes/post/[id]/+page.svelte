@@ -1,5 +1,5 @@
-<script lang='ts'>
-	import Comment from '../../../components/comment.svelte';
+<script lang="ts">
+  import Comment from '../../../components/comment.svelte';
   import Summary from '../../../components/summary.svelte';
 
   export let data;
