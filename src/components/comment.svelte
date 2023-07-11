@@ -2,8 +2,9 @@
 	import type { Comment } from "../routes/post/[id]/+page";
 
   export let comment: Comment;
+  export let nestedLevel = 0;
 
-  $: isCommentOpen = true;
+  $: isCommentOpen = nestedLevel < 3;
 
   function toggleOpen() {
     isCommentOpen = !isCommentOpen;
@@ -17,7 +18,7 @@
       <div class="ml-6 space-y-4 mt-4">
         {#if comment.comments && comment.comments.length > 0}
           {#each comment.comments as nestedComment}
-            <svelte:self comment={nestedComment} />
+            <svelte:self comment={nestedComment} nestedLevel={nestedLevel + 1} />
           {/each}
         {/if}
       </div>
