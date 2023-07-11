@@ -10,10 +10,10 @@
   }
 </script>
 
-<div>
+<div class="ml-4">
   <h3 class="font-medium text-sm">{comment.user} {comment.time_ago} <button class="ml-1" on:click={toggleOpen}>[-]</button></h3>
   {#if isCommentOpen}
-    <div class="font-light text-md" contenteditable="inherit" bind:innerHTML={comment.content} />
+    <div class="font-light text-md mt-2" contenteditable="inherit" bind:innerHTML={comment.content} />
       <div class="ml-6 space-y-4 mt-4">
         {#if comment.comments && comment.comments.length > 0}
           {#each comment.comments as nestedComment}

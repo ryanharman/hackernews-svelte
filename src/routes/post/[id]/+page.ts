@@ -10,6 +10,7 @@ type Response = {
 	type: string;
 	url: string;
 	domain: string;
+	content: string;
 	comments: Comment[];
 	comments_count: number;
 	isPost: boolean;

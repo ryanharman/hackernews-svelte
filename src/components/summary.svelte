@@ -22,4 +22,8 @@
         | <a href={`/post/${post.id}`} class="hover:underline">{post.comments_count} comments</a>
       {/if}
     </p>
+
+    {#if "content" in post}
+      <div class="font-light text-md mt-2" contenteditable="inherit" bind:innerHTML={post.content} />
+    {/if}
   </div>
