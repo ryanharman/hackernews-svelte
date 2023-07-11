@@ -35,4 +35,4 @@ export const load = (async ({ fetch, params }) => {
 	return { item: { ...item, isPost: true } };
 }) satisfies PageLoad;
 
-export type { Response as PostResponse };
+export type { Response as PostResponse, Comment };

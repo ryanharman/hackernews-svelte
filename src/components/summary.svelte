@@ -7,7 +7,7 @@
   $: showCommentLink = !post.isPost;
 </script>
 
-  <div class="">
+  <div class="mb-8">
     <h2 class="font-medium">
       <a href={post.url} target="_blank">
         {post.title}
